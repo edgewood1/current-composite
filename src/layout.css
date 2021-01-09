@@ -1,0 +1,33 @@
+ 
+.container {
+  display: grid;
+  grid-template-columns: 10vw 90vw;
+  grid-template-rows: 5vh 85vh 10vh;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  grid-column: 1 / 2;
+  z-index: 88;
+  width: 100vw;
+  align-items: center;
+}
+.sidebar {
+  grid-column: 1
+}
+
+.content {
+  overflow-y: scroll;
+}
+
+.footer {
+  width: 100vw;
+  grid-column: 1/2;
+}
+
+div {
+  border: 1px solid black;
+}
+ 

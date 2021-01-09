@@ -1,6 +1,6 @@
 module.exports = {
   // 1
-  entry: './src/index.ts',
+  entry: './src/one.tsx',
   // next
   devtool: 'inline-source-map',
   // babel
@@ -16,6 +16,8 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      // for react css files
+      { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] }
     ]
   },
   resolve: {

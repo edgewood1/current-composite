@@ -5,11 +5,14 @@
   "main": "index.ts",
   "scripts": {
     "dev-server2": "webpack-dev-server --mode development",
-    "dev-server1": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "node": "node node2.js",
-    "start": "concurrently \"npm run dev-server2\" \"npm run node\"",
+    "dev-server1": "webpack-dev-server --watch --config webpack.config.js --mode development",
+    "dev-server3": "webpack --mode development --config webpack.config.js --watch",
+    "node": "node ./app/index2.js",
+    "start-staging": "concurrently \"npm run dev-server3\" \"NODE_ENV=staging npm run node\"",
+    "start-prod": "concurrently \"npm run dev-server3\" \"NODE_ENV=production npm run node\"",
     "build": "webpack --config webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "flow": "flow"
   },
   "keywords": [],
   "author": "",
@@ -17,8 +20,11 @@
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
-    "@types/lodash": "^4.14.161",
+    "@babel/preset-flow": "^7.10.4",
+    "@types/lodash": "^4.14.162",
     "babel-loader": "^8.1.0",
+    "flow-bin": "^0.135.0",
+    "node-static": "^0.7.11",
     "ts-loader": "^8.0.4",
     "typescript": "^4.0.3",
     "webpack": "^4.44.2",
@@ -26,7 +32,22 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@types/node": "^14.11.8",
+    "@types/react": "^16.9.52",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.6",
+    "@webcomponents/webcomponentsjs": "^2.4.4",
+    "arg": "^5.0.0",
     "concurrently": "^5.3.0",
-    "lodash": "^4.17.20"
+    "css-loader": "^5.0.1",
+    "foo": "./src/global.d.ts",
+    "lit-element": "^2.4.0",
+    "lodash": "^4.17.20",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "style-loader": "^2.0.0",
+    "use-custom-element": "^1.0.5",
+    "vendor-copy": "^2.0.0"
   }
 }
